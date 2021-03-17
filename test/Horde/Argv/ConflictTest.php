@@ -1,5 +1,7 @@
 <?php
 
+namespace Horde\Argv;
+
 require_once __DIR__ . '/ConflictTestCase.php';
 
 /**
@@ -11,7 +13,7 @@ require_once __DIR__ . '/ConflictTestCase.php';
  * @subpackage UnitTests
  */
 
-class Horde_Argv_ConflictTest extends Horde_Argv_ConflictTestCase
+class ConflictTest extends ConflictTestCase
 {
     public function assertConflictError($func)
     {

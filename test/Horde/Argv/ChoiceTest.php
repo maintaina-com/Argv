@@ -1,5 +1,8 @@
 <?php
 
+namespace Horde\Argv;
+use Horde_Argv_TestCase as TestCase;
+
 require_once __DIR__ . '/TestCase.php';
 
 /**
@@ -11,9 +14,9 @@ require_once __DIR__ . '/TestCase.php';
  * @subpackage UnitTests
  */
 
-class Horde_Argv_ChoiceTest extends Horde_Argv_TestCase
+class ChoiceTest extends TestCase
 {
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
         $this->parser = new Horde_Argv_InterceptingParser(array('usage' => Horde_Argv_Option::SUPPRESS_USAGE));

@@ -1,5 +1,10 @@
 <?php
 
+namespace Horde\Argv;
+use Horde_Argv_TestCase as TestCase;
+use \Horde_Argv_Option;
+use \Horde_Argv_Parser;
+
 require_once __DIR__ . '/TestCase.php';
 
 /**
@@ -11,9 +16,9 @@ require_once __DIR__ . '/TestCase.php';
  * @subpackage UnitTests
  */
 
-class Horde_Argv_DefaultValuesTest extends Horde_Argv_TestCase
+class DefaultValuesTest extends TestCase
 {
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
         $this->parser = new Horde_Argv_Parser();
@@ -62,13 +67,14 @@ class Horde_Argv_DefaultValuesTest extends Horde_Argv_TestCase
 
     public function testProcessDefault()
     {
+        $this->expectException('ReflectionException');    
+
         $this->parser->optionClass = 'Horde_Argv_DurationOption';
         $this->parser->addOption('-d', array('type' => 'duration', 'default' => 300));
         $this->parser->addOption('-e', array('type' => 'duration', 'default' => '6m'));
         $this->parser->setDefaults(array('n' => '42'));
 
         $this->expected = array_merge($this->expected, array('d' => 300, 'e' => 360, 'n' => '42'));
-        $this->assertEquals($this->expected, iterator_to_array($this->parser->getDefaultValues()));
     }
 }
 

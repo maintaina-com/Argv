@@ -1,5 +1,11 @@
 <?php
 
+namespace Horde\Argv;
+use Horde_Argv_TestCase as TestCase;
+use \Horde_Argv_Parser;
+use \Horde_Argv_IndentedHelpFormatter;
+use \Horde_Cli_Color;
+
 require_once __DIR__ . '/TestCase.php';
 
 /**
@@ -11,16 +17,16 @@ require_once __DIR__ . '/TestCase.php';
  * @subpackage UnitTests
  */
 
-class Horde_Argv_ProgNameTest extends Horde_Argv_TestCase
+class ProgNameTest extends TestCase
 {
-    public function setUp()
+    public function setUp(): void
     {
         if (!isset($_SERVER['argv'])) {
             $_SERVER['argv'] = array('test');
         }
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         unset($_SERVER['argv']);
     }

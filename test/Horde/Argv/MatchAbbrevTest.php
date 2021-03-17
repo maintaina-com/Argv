@@ -1,5 +1,9 @@
 <?php
 
+namespace Horde\Argv;
+use Horde_Argv_TestCase as TestCase;
+use \Horde_Argv_Parser;
+
 require_once __DIR__ . '/TestCase.php';
 
 /**
@@ -11,7 +15,7 @@ require_once __DIR__ . '/TestCase.php';
  * @subpackage UnitTests
  */
 
-class Horde_Argv_MatchAbbrevTest extends Horde_Argv_TestCase
+class MatchAbbrevTest extends TestCase
 {
     public function testMatchAbbrev()
     {
@@ -28,12 +32,8 @@ class Horde_Argv_MatchAbbrevTest extends Horde_Argv_TestCase
         $s = '--f';
         $wordmap = array("--foz" => null, "--foo" => null, "--fie" => null);
 
-        try {
-            Horde_Argv_Parser::matchAbbrev($s, $wordmap);
-            $this->fail();
-        } catch (Horde_Argv_BadOptionException $e) {
-            $this->assertEquals("ambiguous option: --f (--fie, --foo, --foz?)",
-                                $e->getMessage());
-        }
+        $this->expectException('Horde_Argv_AmbiguousOptionException');
+
+        Horde_Argv_Parser::matchAbbrev($s, $wordmap);
     }
 }

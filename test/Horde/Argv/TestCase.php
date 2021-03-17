@@ -8,14 +8,14 @@
  * @subpackage UnitTests
  */
 
-class Horde_Argv_TestCase extends PHPUnit_Framework_TestCase
+class Horde_Argv_TestCase extends PHPUnit\Framework\TestCase
 {
-    public static function setUpBeforeClass()
+    public static function setUpBeforeClass(): void
     {
         setlocale(LC_ALL, 'C');
     }
 
-    public static function tearDownAfterClass()
+    public static function tearDownAfterClass(): void
     {
         setlocale(LC_ALL, '');
     }
@@ -98,7 +98,7 @@ class Horde_Argv_TestCase extends PHPUnit_Framework_TestCase
     {
         try {
             $this->parser->parseArgs($cmdline_args);
-        } catch (Horde_Argv_InterceptedException $e) {
+        } catch (InterceptedException $e) {
             $this->assertEquals($expected_output, (string)$e);
             return true;
         } catch (Exception $e) {
@@ -120,7 +120,7 @@ class Horde_Argv_TestCase extends PHPUnit_Framework_TestCase
         ob_start();
         try {
             $this->parser->parseArgs($cmdline_args);
-        } catch (Horde_Argv_InterceptedException $e) {
+        } catch (InterceptedException $e) {
             $output = ob_get_clean();
 
             $this->assertEquals($expected_output, $output, 'Expected parser output to match');

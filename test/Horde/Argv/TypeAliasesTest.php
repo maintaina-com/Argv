@@ -1,5 +1,9 @@
 <?php
 
+namespace Horde\Argv;
+use Horde_Argv_TestCase as TestCase;
+use \Horde_Argv_Parser;
+
 require_once __DIR__ . '/TestCase.php';
 
 /**
@@ -11,9 +15,9 @@ require_once __DIR__ . '/TestCase.php';
  * @subpackage UnitTests
  */
 
-class Horde_Argv_TypeAliasesTest extends Horde_Argv_TestCase
+class TypeAliasesTest extends TestCase
 {
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
         $this->parser = new Horde_Argv_Parser();

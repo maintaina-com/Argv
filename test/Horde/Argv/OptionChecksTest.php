@@ -1,5 +1,10 @@
 <?php
 
+namespace Horde\Argv;
+use Horde_Argv_TestCase as TestCase;
+use \Horde_Argv_Parser;
+use \Horde_Argv_Option;
+
 require_once __DIR__ . '/TestCase.php';
 
 /**
@@ -11,9 +16,9 @@ require_once __DIR__ . '/TestCase.php';
  * @subpackage UnitTests
  */
 
-class Horde_Argv_OptionChecksTest extends Horde_Argv_TestCase
+class OptionChecksTest extends TestCase
 {
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
         $this->parser = new Horde_Argv_Parser(array('usage' => Horde_Argv_Option::SUPPRESS_USAGE));
@@ -26,15 +31,8 @@ class Horde_Argv_OptionChecksTest extends Horde_Argv_TestCase
 
     public function testOptStringEmpty()
     {
-        try {
-            new Horde_Argv_Option();
-        } catch (Exception $e) {
-            $this->assertInstanceOf('InvalidArgumentException', $e);
-            $this->assertEquals("at least one option string must be supplied", $e->getMessage());
-            return true;
-        }
-
-        $this->fail("InvalidArgumentException for no option strings not thrown");
+        $this->expectException('InvalidArgumentException');
+        new Horde_Argv_Option();
     }
 
     public function testOptStringTooShort()

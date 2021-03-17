@@ -7,10 +7,14 @@
  * @package    Argv
  * @subpackage UnitTests
  */
+namespace Horde\Argv;
+use Horde_Argv_TestCase as TestCase;
+use \Horde_Argv_Parser;
+use \Horde_Argv_Option;
 
-class Horde_Argv_ConflictTestCase extends Horde_Argv_TestCase
+class ConflictTestCase extends TestCase
 {
-    public function setUp()
+    public function setUp(): void
     {
         $options = array(new Horde_Argv_Option('-v', '--verbose', array(
             'action' => 'count',

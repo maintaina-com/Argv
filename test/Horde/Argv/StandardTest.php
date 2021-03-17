@@ -1,5 +1,9 @@
 <?php
 
+namespace Horde\Argv;
+use Horde_Argv_TestCase as TestCase;
+use \Horde_Argv_Option;
+
 require_once __DIR__ . '/TestCase.php';
 
 /**
@@ -11,9 +15,9 @@ require_once __DIR__ . '/TestCase.php';
  * @subpackage UnitTests
  */
 
-class Horde_Argv_StandardTest extends Horde_Argv_TestCase
+class StandardTest extends TestCase
 {
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
         $options = array(
@@ -22,7 +26,7 @@ class Horde_Argv_StandardTest extends Horde_Argv_TestCase
             $this->makeOption('--foo', array('action' => 'append'))
         );
 
-        $this->parser = new Horde_Argv_InterceptingParser(array('usage' => Horde_Argv_Option::SUPPRESS_USAGE,
+        $this->parser = new InterceptingParser(array('usage' => Horde_Argv_Option::SUPPRESS_USAGE,
                                                                 'optionList' => $options));
     }
 

@@ -1,5 +1,8 @@
 <?php
 
+namespace Horde\Argv;
+use Horde_Argv_Parser;
+
 require_once __DIR__ . '/InterceptedException.php';
 
 /**
@@ -11,16 +14,16 @@ require_once __DIR__ . '/InterceptedException.php';
  * @subpackage UnitTests
  */
 
-class Horde_Argv_InterceptingParser extends Horde_Argv_Parser
+class InterceptingParser extends Horde_Argv_Parser
 {
     public function parserExit($status = 0, $msg = null)
     {
-        throw new Horde_Argv_InterceptedException(null, $status, $msg);
+        throw new InterceptedException(null, $status, $msg);
     }
 
     public function parserError($msg)
     {
-        throw new Horde_Argv_InterceptedException($msg);
+        throw new InterceptedException($msg);
     }
 
 }

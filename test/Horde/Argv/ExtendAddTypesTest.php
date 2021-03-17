@@ -1,5 +1,9 @@
 <?php
 
+namespace Horde\Argv;
+use Horde_Argv_TestCase as TestCase;
+use \Horde_Argv_Option;
+
 require_once __DIR__ . '/TestCase.php';
 
 /**
@@ -11,9 +15,9 @@ require_once __DIR__ . '/TestCase.php';
  * @subpackage UnitTests
  */
 
-class Horde_Argv_ExtendAddTypesTest extends Horde_Argv_TestCase
+class ExtendAddTypesTest extends TestCase
 {
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
         $this->parser = new Horde_Argv_InterceptingParser(array('usage' => Horde_Argv_Option::SUPPRESS_USAGE,
@@ -25,7 +29,7 @@ class Horde_Argv_ExtendAddTypesTest extends Horde_Argv_TestCase
         $this->testPath = tempnam('/tmp', 'horde_argv');
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         if (!is_link($this->testPath) && is_dir($this->testPath)) {
             rmdir($this->testPath);

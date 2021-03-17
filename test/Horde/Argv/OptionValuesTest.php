@@ -1,5 +1,9 @@
 <?php
 
+namespace Horde\Argv;
+use Horde_Argv_TestCase as TestCase;
+use \Horde_Argv_Values;
+
 require_once __DIR__ . '/TestCase.php';
 
 /**
@@ -11,7 +15,7 @@ require_once __DIR__ . '/TestCase.php';
  * @subpackage UnitTests
  */
 
-class Horde_Argv_OptionValuesTest extends Horde_Argv_TestCase
+class OptionValuesTest extends TestCase
 {
     public function testBasics()
     {

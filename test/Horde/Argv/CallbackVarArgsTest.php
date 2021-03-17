@@ -1,5 +1,8 @@
 <?php
 
+namespace Horde\Argv;
+use Horde_Argv_TestCase as TestCase;
+
 require_once __DIR__ . '/TestCase.php';
 require_once __DIR__ . '/InterceptingParser.php';
 
@@ -12,9 +15,9 @@ require_once __DIR__ . '/InterceptingParser.php';
  * @subpackage UnitTests
  */
 
-class Horde_Argv_CallbackVarArgsTest extends Horde_Argv_TestCase
+class CallbackVarArgsTest extends TestCase
 {
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
         $options = array(
