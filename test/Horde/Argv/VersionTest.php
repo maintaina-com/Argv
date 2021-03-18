@@ -31,7 +31,7 @@ class VersionTest extends TestCase
 
     public function testVersion()
     {
-        $this->parser = new InterceptingParser(array(
+        $this->parser = new Horde_Argv_InterceptingParser(array(
             'usage'   => Horde_Argv_Option::SUPPRESS_USAGE,
             'version' => "%prog 0.1"));
         $saveArgv = $_SERVER['argv'];
@@ -48,7 +48,7 @@ class VersionTest extends TestCase
 
     public function testNoVersion()
     {
-        $this->parser = new InterceptingParser(array('usage' => Horde_Argv_Option::SUPPRESS_USAGE));
+        $this->parser = new Horde_Argv_InterceptingParser(array('usage' => Horde_Argv_Option::SUPPRESS_USAGE));
         $this->assertParseFail(array("--version"), "no such option: --version");
     }
 }

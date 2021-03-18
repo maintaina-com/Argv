@@ -118,7 +118,7 @@ Options:
 
         putenv('COLUMNS=' . $columns);
 
-        return new InterceptingParser(array(
+        return new Horde_Argv_InterceptingParser(array(
             'optionList' => $options,
             'formatter' => new Horde_Argv_IndentedHelpFormatter(
                 2, 24, null, true,

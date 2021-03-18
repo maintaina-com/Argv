@@ -22,7 +22,7 @@ class ConflictOverrideTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
-        $this->parser = new InterceptingParser(array(
+        $this->parser = new Horde_Argv_InterceptingParser(array(
             'usage' => Horde_Argv_Option::SUPPRESS_USAGE,
             'formatter' => new Horde_Argv_IndentedHelpFormatter(
                 2, 24, null, true,

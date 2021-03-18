@@ -2,6 +2,7 @@
 
 namespace Horde\Argv;
 use Horde_Argv_TestCase as TestCase;
+use \Horde_Argv_Parser;
 
 require_once __DIR__ . '/TestCase.php';
 

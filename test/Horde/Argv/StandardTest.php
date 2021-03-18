@@ -26,7 +26,7 @@ class StandardTest extends TestCase
             $this->makeOption('--foo', array('action' => 'append'))
         );
 
-        $this->parser = new InterceptingParser(array('usage' => Horde_Argv_Option::SUPPRESS_USAGE,
+        $this->parser = new Horde_Argv_InterceptingParser(array('usage' => Horde_Argv_Option::SUPPRESS_USAGE,
                                                                 'optionList' => $options));
     }
 
