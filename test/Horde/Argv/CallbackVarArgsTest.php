@@ -2,6 +2,7 @@
 
 namespace Horde\Argv;
 use Horde_Argv_TestCase as TestCase;
+use \Horde_Argv_Option;
 
 require_once __DIR__ . '/TestCase.php';
 require_once __DIR__ . '/InterceptingParser.php';
@@ -25,7 +26,7 @@ class CallbackVarArgsTest extends TestCase
             $this->makeOption('-b', array('action' => 'store_true', 'dest' => 'b')),
             $this->makeOption('-c', '--callback', array('action' => 'callback', 'callback' => array($this, 'variableArgs'), 'dest' => 'c')),
         );
-        $this->parser = new Horde_Argv_InterceptingParser(array('usage' => Horde_Argv_Option::SUPPRESS_USAGE,
+        $this->parser = new InterceptingParser(array('usage' => Horde_Argv_Option::SUPPRESS_USAGE,
                                                                 'optionList' => $options));
     }
 

@@ -2,6 +2,9 @@
 
 namespace Horde\Argv;
 use Horde_Argv_TestCase as TestCase;
+use \Horde_Argv_Option;
+use \Horde_Argv_IndentedHelpFormatter;
+use \Horde_Cli_Color;
 
 require_once __DIR__ . '/TestCase.php';
 
@@ -19,7 +22,7 @@ class ConflictOverrideTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
-        $this->parser = new Horde_Argv_InterceptingParser(array(
+        $this->parser = new InterceptingParser(array(
             'usage' => Horde_Argv_Option::SUPPRESS_USAGE,
             'formatter' => new Horde_Argv_IndentedHelpFormatter(
                 2, 24, null, true,

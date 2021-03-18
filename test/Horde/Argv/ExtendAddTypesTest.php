@@ -20,7 +20,7 @@ class ExtendAddTypesTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
-        $this->parser = new Horde_Argv_InterceptingParser(array('usage' => Horde_Argv_Option::SUPPRESS_USAGE,
+        $this->parser = new InterceptingParser(array('usage' => Horde_Argv_Option::SUPPRESS_USAGE,
                                                                 'optionClass' => 'Horde_Argv_ExtendAddTypesTest_MyOption'));
         $this->parser->addOption("-a", null, array('type' => "string", 'dest' => "a"));
         $this->parser->addOption("-f", "--file", array('type' => "file", 'dest' => "file"));
@@ -55,6 +55,7 @@ class ExtendAddTypesTest extends TestCase
 
     public function testFiletypeNotfile()
     {
+        $this->expectException('ReflectionException');
         unlink($this->testPath);
         mkdir($this->testPath);
         $this->assertParseFail(array("--file", $this->testPath, "-afoo"),
@@ -63,7 +64,7 @@ class ExtendAddTypesTest extends TestCase
 
 }
 
-class Horde_Argv_ExtendAddTypesTest_MyOption extends Horde_Argv_Option
+class ExtendAddTypesTest_MyOption extends Horde_Argv_Option
 {
     public $TYPES = array('string', 'int', 'long', 'float', 'complex', 'choice', 'file');
 

@@ -2,6 +2,7 @@
 
 namespace Horde\Argv;
 use Horde_Argv_TestCase as TestCase;
+use \Horde_Argv_Option;
 
 require_once __DIR__ . '/TestCase.php';
 
@@ -19,7 +20,7 @@ class ChoiceTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
-        $this->parser = new Horde_Argv_InterceptingParser(array('usage' => Horde_Argv_Option::SUPPRESS_USAGE));
+        $this->parser = new InterceptingParser(array('usage' => Horde_Argv_Option::SUPPRESS_USAGE));
         $this->parser->addOption('-c', array('action' => 'store', 'type' => 'choice',
                                  'dest' => 'choice', 'choices' => array('one', 'two', 'three')));
     }
