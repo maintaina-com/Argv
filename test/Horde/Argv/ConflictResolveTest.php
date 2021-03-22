@@ -1,8 +1,7 @@
 <?php
 
 namespace Horde\Argv;
-
-require_once __DIR__ . '/ConflictTestCase.php';
+use \Horde_Argv_IndentedHelpFormatter;
 
 /**
  * @author     Chuck Hagenbuch <chuck@horde.org>

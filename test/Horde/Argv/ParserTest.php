@@ -1,10 +1,7 @@
 <?php
 
 namespace Horde\Argv;
-use Horde_Argv_TestCase as TestCase;
 use \Horde_Argv_Parser;
-
-require_once __DIR__ . '/TestCase.php';
 
 /**
  * @author     Chuck Hagenbuch <chuck@horde.org>
@@ -29,12 +26,14 @@ class ParserTest extends TestCase
 
     public function testAddOptionNoOption()
     {
+        $this->expectException('InvalidArgumentException');
         $this->assertTypeError(array($this->parser, 'addOption'),
                                "not an Option instance: NULL", array(null));
     }
 
     public function testAddOptionInvalidArguments()
     {
+        $this->expectException('InvalidArgumentException');
         $this->assertTypeError(array($this->parser, 'addOption'),
                                "invalid arguments", null);
     }
@@ -96,6 +95,7 @@ class ParserTest extends TestCase
 
     public function testRemoveNonexistent()
     {
+        $this->expectException('InvalidArgumentException');
         $this->assertRaises(array($this->parser, 'removeOption'), array('foo'), 'InvalidArgumentException', "no such option 'foo'");
     }
 

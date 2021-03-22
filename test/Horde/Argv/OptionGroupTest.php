@@ -1,12 +1,9 @@
 <?php
 
 namespace Horde\Argv;
-use Horde_Argv_TestCase as TestCase;
 use \Horde_Argv_Parser;
 use \Horde_Argv_Option;
 use \Horde_Argv_OptionGroup;
-
-require_once __DIR__ . '/TestCase.php';
 
 /**
  * @author     Chuck Hagenbuch <chuck@horde.org>
@@ -36,18 +33,21 @@ class OptionGroupTest extends TestCase
 
     public function testAddGroupNoGroup()
     {
+        $this->expectException('InvalidArgumentException');
         $this->assertTypeError(array($this->parser, 'addOptionGroup'),
                                "not an OptionGroup instance: NULL", array(null));
     }
 
     public function testAddGroupInvalidArguments()
     {
+        $this->expectException('InvalidArgumentException');
         $this->assertTypeError(array($this->parser, 'addOptionGroup'),
                                "invalid arguments", null);
     }
 
     public function testAddGroupWrongParser()
     {
+        $this->expectException('InvalidArgumentException');
         $group = new Horde_Argv_OptionGroup($this->parser, "Spam");
         $group->parser = new Horde_Argv_Parser();
         $this->assertRaises(array($this->parser, 'addOptionGroup'), array($group),

@@ -1,10 +1,7 @@
 <?php
 
 namespace Horde\Argv;
-use Horde_Argv_TestCase as TestCase;
 use \Horde_Argv_Option;
-
-require_once __DIR__ . '/TestCase.php';
 
 /**
  * @author     Chuck Hagenbuch <chuck@horde.org>
@@ -31,7 +28,7 @@ class VersionTest extends TestCase
 
     public function testVersion()
     {
-        $this->parser = new Horde_Argv_InterceptingParser(array(
+        $this->parser = new InterceptingParser(array(
             'usage'   => Horde_Argv_Option::SUPPRESS_USAGE,
             'version' => "%prog 0.1"));
         $saveArgv = $_SERVER['argv'];
@@ -48,7 +45,7 @@ class VersionTest extends TestCase
 
     public function testNoVersion()
     {
-        $this->parser = new Horde_Argv_InterceptingParser(array('usage' => Horde_Argv_Option::SUPPRESS_USAGE));
+        $this->parser = new InterceptingParser(array('usage' => Horde_Argv_Option::SUPPRESS_USAGE));
         $this->assertParseFail(array("--version"), "no such option: --version");
     }
 }

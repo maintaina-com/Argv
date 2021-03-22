@@ -1,9 +1,7 @@
 <?php
 
 namespace Horde\Argv;
-use Horde_Argv_TestCase as TestCase;
-
-require_once __DIR__ . '/TestCase.php';
+use \Horde_Argv_Option;
 
 /**
  * @author     Chuck Hagenbuch <chuck@horde.org>
@@ -19,7 +17,7 @@ class CountTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
-        $this->parser = new Horde_Argv_InterceptingParser(array('usage' => Horde_Argv_Option::SUPPRESS_USAGE));
+        $this->parser = new InterceptingParser(array('usage' => Horde_Argv_Option::SUPPRESS_USAGE));
         $this->vOpt = $this->makeOption('-v', array('action' => 'count', 'dest' => 'verbose'));
         $this->parser->addOption($this->vOpt);
         $this->parser->addOption('--verbose', array('type' => 'int', 'dest' => 'verbose'));

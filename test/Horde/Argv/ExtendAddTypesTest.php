@@ -1,10 +1,7 @@
 <?php
 
 namespace Horde\Argv;
-use Horde_Argv_TestCase as TestCase;
 use \Horde_Argv_Option;
-
-require_once __DIR__ . '/TestCase.php';
 
 /**
  * @author     Chuck Hagenbuch <chuck@horde.org>

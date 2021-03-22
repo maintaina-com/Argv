@@ -7,8 +7,11 @@
  * @package    Argv
  * @subpackage UnitTests
  */
+namespace Horde\Argv;
+use PHPUnit\Framework\TestCase as PHPTestCase;
+use \ReflectionClass;
 
-class Horde_Argv_TestCase extends PHPUnit\Framework\TestCase
+class TestCase extends PHPTestCase
 {
     public static function setUpBeforeClass(): void
     {

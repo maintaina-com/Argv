@@ -1,13 +1,10 @@
 <?php
 
 namespace Horde\Argv;
-use Horde_Argv_TestCase as TestCase;
 use \Horde_Argv_IndentedHelpFormatter;
 use \Horde_Cli_Color;
 use \Horde_Argv_OptionGroup;
 use \Horde_Argv_TitledHelpFormatter;
-
-require_once __DIR__ . '/TestCase.php';
 
 /**
  * @author     Chuck Hagenbuch <chuck@horde.org>
@@ -118,7 +115,7 @@ Options:
 
         putenv('COLUMNS=' . $columns);
 
-        return new Horde_Argv_InterceptingParser(array(
+        return new InterceptingParser(array(
             'optionList' => $options,
             'formatter' => new Horde_Argv_IndentedHelpFormatter(
                 2, 24, null, true,

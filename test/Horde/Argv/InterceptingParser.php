@@ -3,8 +3,6 @@
 namespace Horde\Argv;
 use Horde_Argv_Parser;
 
-require_once __DIR__ . '/InterceptedException.php';
-
 /**
  * @author     Chuck Hagenbuch <chuck@horde.org>
  * @author     Mike Naberezny <mike@maintainable.com>

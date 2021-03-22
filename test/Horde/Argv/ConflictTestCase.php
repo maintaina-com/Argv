@@ -8,9 +8,10 @@
  * @subpackage UnitTests
  */
 namespace Horde\Argv;
-use Horde_Argv_TestCase as TestCase;
 use \Horde_Argv_Parser;
 use \Horde_Argv_Option;
+use \Horde_Argv_IndentedHelpFormatter;
+use \Horde_Cli_Color;
 
 class ConflictTestCase extends TestCase
 {
@@ -22,7 +23,7 @@ class ConflictTestCase extends TestCase
             'help' => 'increment verbosity'))
         );
 
-        $this->parser = new Horde_Argv_InterceptingParser(array(
+        $this->parser = new InterceptingParser(array(
             'usage' => Horde_Argv_Option::SUPPRESS_USAGE,
             'optionList' => $options,
             'formatter' => new Horde_Argv_IndentedHelpFormatter(
